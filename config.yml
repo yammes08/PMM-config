@@ -105,9 +105,9 @@ libraries:
       template_variables:
         sort_by: title.asc
         radarr_tag: pmm_basic
-    - pmm: genre
-      template_variables:
-        sort_by: title.asc
+    # - pmm: genre
+    #   template_variables:
+    #     sort_by: title.asc
     - pmm: decade
       template_variables:
         sort_by: title.asc
