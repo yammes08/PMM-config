@@ -1,0 +1,188 @@
+settings:
+  cache: true
+  cache_expiration: 30
+  asset_directory: /config/assets
+  asset_folders: true
+  asset_depth: 1
+  create_asset_folders: true
+  prioritize_assets: false
+  dimensional_asset_rename: true
+  download_url_assets: true
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
+  sync_mode: append
+  default_collection_order:
+  minimum_items: 2
+  delete_below_minimum: true
+  delete_not_scheduled: false
+  run_again_delay: 2
+  missing_only_released: true
+  show_unmanaged: true
+  show_unconfigured: true
+  show_filtered: true
+  show_options: true
+  show_missing: false
+  only_filter_missing: false
+  show_missing_assets: false
+  save_report: true
+  tvdb_language: eng
+  ignore_ids:
+  ignore_imdb_ids:
+  item_refresh_delay: 0
+  playlist_sync_to_users: all
+  playlist_report: false
+  verify_ssl: true
+  check_nightly: true
+  custom_repo:
+  playlist_exclude_users:
+webhooks:
+  error: notifiarr
+  version: notifiarr
+  run_start: notifiarr
+  run_end: notifiarr
+  changes: notifiarr
+notifiarr:
+  apikey: (redacted)
+plex:
+  url: (redacted)
+  token: (redacted)
+  timeout: 60
+  clean_bundles: true
+  empty_trash: true
+  optimize: false
+mdblist:
+  apikey: (redacted)
+  cache_expiration: 60
+tmdb:
+  apikey: (redacted)
+  language: en
+  cache_expiration: 60
+  region: gb
+omdb:
+  apikey: (redacted)
+  cache_expiration: 60
+radarr:
+  url: http://radarr:7878
+  token: (redacted)
+  add_missing: true
+  add_existing: true
+  root_folder_path: /data/media/movies
+  monitor: false
+  availability: released
+  quality_profile: Bluray|WEB-1080p
+  tag: pmm
+  search: false
+  radarr_path:
+  plex_path:
+  upgrade_existing: false
+
+libraries:
+  Movies:
+    metadata_path:
+    - folder: config/metadata/movies/
+    - pmm: seasonal
+      template_variables:
+        schedule_valentine: never
+        schedule_independence: never
+        schedule_thanksgiving: never
+        schedule_mother: never
+        schedule_memorial: never
+        schedule_father: never
+        schedule_labor: never
+        sort_by: title.asc
+        radarr_tag: pmm_seasonal
+    - pmm: separator_chart
+    - pmm: separator_award
+    - pmm: oscars
+      template_variables:
+        use_best_director: false
+        use_year_collections: false
+        collection_order: release
+        radarr_tag: pmm_oscars
+    - pmm: basic
+      template_variables:
+        sort_by: title.asc
+        radarr_tag: pmm_basic
+    - pmm: genre
+      template_variables:
+        sort_by: title.asc
+    - pmm: decade
+      template_variables:
+        sort_by: title.asc
+        radarr_tag: pmm_decade
+    report_path: /config/reports/Movies.yml
+    overlay_path:
+    # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
+    - remove_overlays: false                        # Set to true if you want to remove overlays
+    - reapply_overlay: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
+    - pmm: mediastinger
+    - pmm: resolution
+      template_variables:
+        use_1080p: false
+        use_720p: false
+        use_576p: false
+        use_480p: false
+        use_directorscut: false
+        use_extended: false
+        use_uncut: false
+        use_unrated: false
+        use_special: false
+        use_finalcut: false
+        use_anniversary: false
+        use_collector: false
+        use_international: false
+        use_theatrical: false
+        use_ultimate: false
+        use_remastered: false
+        use_criterion: false
+
+  Movies for operations:
+    library_name: Movies
+    schedule: Weekly(monday)
+    operations:
+      assets_for_all: true
+      mass_genre_update: tmdb
+      # mass_poster_update: tmdb
+      # mass_content_rating_update: reset
+      mass_originally_available_update: tmdb
+      mass_audience_rating_update: mdb_tomatoesaudience
+      mass_critic_rating_update: mdb_tomatoes
+      mass_user_rating_update: imdb
+      split_duplicates: false
+      metadata_backup:
+        path: /config/backups/Movies/metadata.yml
+
+  TV Shows:
+    report_path: /config/reports/TV_Shows.yml
+    overlay_path:
+    # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
+    - remove_overlays: false                        # Set to true if you want to remove overlays
+    - reapply_overlay: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
+    - pmm: resolution
+      template_variables:
+        use_1080p: false
+        use_720p: false
+        use_576p: false
+        use_480p: false
+        use_edition: false
+    - pmm: resolution
+      template_variables:
+        overlay_level: season
+        use_1080p: false
+        use_720p: false
+        use_576p: false
+        use_480p: false
+        use_edition: false
+    operations:
+      assets_for_all: true
+      mass_genre_update: tmdb
+      # mass_poster_update: tmdb
+      # mass_content_rating_update: reset
+      mass_originally_available_update: tmdb
+      mass_audience_rating_update: mdb_tomatoesaudience
+      mass_critic_rating_update: mdb_tomatoes
+      mass_user_rating_update: tmdb
+      split_duplicates: false
+      metadata_backup:
+        path: /config/backups/TV/metadata.yml
