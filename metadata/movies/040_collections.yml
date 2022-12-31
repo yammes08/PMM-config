@@ -82,7 +82,7 @@ collections:
 
 #Studio Ghibli
   "Studio Ghibli Collection":
-    template: {name: Collections, radarr: true, list: 4309, order: alpha, poster: https://theposterdb.com/api/assets/24655}
+    template: {name: Collections, radarr: true, tag: pmm_ghibli, tmdb: 4309, order: alpha, poster: https://theposterdb.com/api/assets/24655}
 
 #Blade Runner Collection
   "Blade Runner Collection":
