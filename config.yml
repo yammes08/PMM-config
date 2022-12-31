@@ -83,13 +83,14 @@ libraries:
     - folder: config/metadata/movies/
     - pmm: seasonal
       template_variables:
-        schedule_valentine: never
-        schedule_independence: never
-        schedule_thanksgiving: never
-        schedule_mother: never
-        schedule_memorial: never
-        schedule_father: never
-        schedule_labor: never
+        use_valentine: false
+        use_independence: false
+        use_thanksgiving: false
+        use_mother: false
+        use_memorial: false
+        use_father: false
+        use_labor: false
+        use_separator: true
         sort_by: title.asc
         radarr_tag: pmm_seasonal
     - pmm: separator_chart
