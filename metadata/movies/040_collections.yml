@@ -44,31 +44,31 @@ collections:
         translation_key: separator
 
 #Middle Earth
-  "The Lord of the Rings":
-    template: {name: Collections, radarr: true, tag: pmm_lotr, collection: 119, order: release, poster: https://theposterdb.com/api/assets/113964 }
+  "The Lord of the Rings Collection":
+    template: {name: Collections, radarr: true, tag: pmm_lotr, collection: 119, tmdb_summary: 119, order: release, poster: https://theposterdb.com/api/assets/113964 }
 
 #Wizarding World
-  "Harry Potter":
-    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, order: release, poster: https://theposterdb.com/api/assets/545 }
+  "Harry Potter Collection":
+    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, tmdb_summary: 1241, order: release, poster: https://theposterdb.com/api/assets/545 }
 
 #DC
-  "Batman":
+  "Batman Collection":
     template: {name: Collections, radarr: true, tag: pmm_batman, order: release, poster: https://theposterdb.com/api/assets/79435 }
     tmdb_collection:
       - 263
       - 948485
       - 120794
 
-  "Superman":
-    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, order: release, poster: https://theposterdb.com/api/assets/72726 }
+  "Superman Colection":
+    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, tmdb_summary: 8537, order: release, poster: https://theposterdb.com/api/assets/72726 }
 
 #James Bond
-  "James Bond":
+  "James Bond Collection":
     template: {name: Collections, radarr: true, tag: pmm_bond, collection: 645, tmdb_summary: 645, order: release, poster: https://theposterdb.com/api/assets/24922}
 
 #Mission Impossible
-  "Mission: Impossible":
-    template: {name: Collections, radarr: true, tag: pmm_mi, collection: "87359", tmdb_summary: 87359, order: release, poster: https://theposterdb.com/api/assets/12118}
+  "Mission: Impossible Collection":
+    template: {name: Collections, radarr: true, tag: pmm_mi, collection: 87359, tmdb_summary: 87359, order: release, poster: https://theposterdb.com/api/assets/12118}
 
 #MCU
   "Marvel Cinematic Universe":
@@ -86,7 +86,7 @@ collections:
 
 #Blade Runner Collection
   "Blade Runner Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bladerunner, collection: 422837, order: release, poster: https://theposterdb.com/api/assets/28342}
+    template: {name: Collections, radarr: true, tag: pmm_bladerunner, collection: 422837, tmdb_summary: 422837, order: release, poster: https://theposterdb.com/api/assets/28342}
 
 #Back to the Future Collection
   "Back to the Future Collection":
@@ -121,3 +121,7 @@ collections:
 #Horror Collection
   "Essential Horror Movies":
     template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/external/13801, movie: 11868, order: alpha, summary: "Rotten Tomatoes' greatest Horror films of all time.", poster: https://theposterdb.com/api/assets/51475} 
+
+#Terminator Collection
+  "Terminator Collection":
+    template: {name: Collections, radarr: true, tag: pmm_terminator, collection: 528, tmdb_summary: 528, order: release, poster: https://theposterdb.com/api/assets/24273}
