@@ -91,7 +91,6 @@ libraries:
         use_memorial: false
         use_father: false
         use_labor: false
-        use_separator: true
         sort_by: title.asc
         radarr_tag: pmm_seasonal
     - pmm: separator_chart
