@@ -17,12 +17,12 @@ settings:
   delete_below_minimum: true
   delete_not_scheduled: false
   run_again_delay: 2
-  missing_only_released: true
-  show_unmanaged: true
+  missing_only_released: false
+  show_unmanaged: false
   show_unconfigured: true
-  show_filtered: true
-  show_options: true
-  show_missing: false
+  show_filtered: false
+  show_options: false
+  show_missing: true
   only_filter_missing: false
   show_missing_assets: false
   save_report: true
@@ -33,7 +33,7 @@ settings:
   playlist_sync_to_users: all
   playlist_report: false
   verify_ssl: true
-  check_nightly: true
+  check_nightly: false
   custom_repo:
   playlist_exclude_users:
 webhooks:
@@ -137,6 +137,10 @@ libraries:
         use_ultimate: false
         use_remastered: false
         use_criterion: false
+      operations:
+      delete_collections:
+        configured: false
+        managed: false
 
   Movies for operations:
     library_name: Movies
