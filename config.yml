@@ -79,6 +79,7 @@ radarr:
 
 libraries:
   Movies:
+    report_path: /config/reports/Movies.yml
     metadata_path:
     - folder: config/metadata/movies/
     - pmm: seasonal
@@ -105,14 +106,10 @@ libraries:
       template_variables:
         sort_by: title.asc
         radarr_tag: pmm_basic
-    # - pmm: genre
-    #   template_variables:
-    #     sort_by: title.asc
     - pmm: decade
       template_variables:
         sort_by: title.asc
         radarr_tag: pmm_decade
-    report_path: /config/reports/Movies.yml
     overlay_path:
     # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
     - remove_overlays: false                        # Set to true if you want to remove overlays
@@ -137,10 +134,12 @@ libraries:
         use_ultimate: false
         use_remastered: false
         use_criterion: false
-      operations:
+    operations:
       delete_collections:
         configured: false
         managed: false
+      content_rating_mapper:
+        "gb/12A": gb/12
 
   Movies for operations:
     library_name: Movies
