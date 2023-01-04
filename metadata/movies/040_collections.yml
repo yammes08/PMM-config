@@ -31,6 +31,8 @@ templates:
     sort_title: <<collection_name>>
     radarr_add_missing: <<radarr>>
     radarr_tag: <<tag>>
+    item_radarr_tag: <<tag>>
+    ignore_blank_results: true
     #schedule: weekly(saturday)
 
 collections:
@@ -125,8 +127,8 @@ collections:
 #Terminator Collection
   "Terminator Collection":
     template: {name: Collections, radarr: true, tag: pmm_terminator, collection: 528, tmdb_summary: 528, order: release, poster: https://theposterdb.com/api/assets/24273}
- 
- #Star Trek Collection
+
+#Star Trek Collection
   "Star Trek Collection":
     template: {name: Collections, radarr: true, tag: pmm_startrek, order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", poster: https://theposterdb.com/api/assets/146184}
     tmdb_collection:

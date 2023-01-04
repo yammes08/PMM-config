@@ -42,6 +42,7 @@ webhooks:
   run_start: notifiarr
   run_end: notifiarr
   changes: notifiarr
+  delete:
 notifiarr:
   apikey: (redacted)
 plex:
@@ -93,6 +94,7 @@ libraries:
         use_labor: false
         sort_by: title.asc
         radarr_tag: pmm_seasonal
+        item_radarr_tag: pmm_seasonal
     - pmm: separator_chart
     - pmm: separator_award
     - pmm: oscars
@@ -101,6 +103,7 @@ libraries:
         use_year_collections: false
         collection_order: release
         radarr_tag: pmm_oscars
+        item_radarr_tag: pmm_oscars
     - pmm: basic
       template_variables:
         sort_by: title.asc
@@ -138,7 +141,7 @@ libraries:
         configured: false
         managed: false
       content_rating_mapper:
-        "gb/12A": gb/12
+        gb/12A: gb/12
 
   Movies for operations:
     library_name: Movies
