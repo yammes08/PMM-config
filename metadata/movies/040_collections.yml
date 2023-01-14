@@ -55,11 +55,7 @@ collections:
 
 #DC
   "Batman Collection":
-    template: {name: Collections, radarr: true, tag: pmm_batman, order: release, poster: https://theposterdb.com/api/assets/79435 }
-    tmdb_collection:
-      - 263
-      - 948485
-      - 120794
+    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, poster: https://theposterdb.com/api/assets/79435 }
 
   "Superman Colection":
     template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, tmdb_summary: 8537, order: release, poster: https://theposterdb.com/api/assets/72726 }
@@ -74,9 +70,7 @@ collections:
 
 #MCU
   "Marvel Cinematic Universe":
-    template: {name: Collections, radarr: true, tag: pmm_marvel, order: release, poster: https://theposterdb.com/api/assets/879}
-    imdb_list:
-      - https://www.imdb.com/list/ls031310794/
+    template: {name: Collections, radarr: true, tag: pmm_marvel, imdb: https://www.imdb.com/list/ls031310794/, order: release, poster: https://theposterdb.com/api/assets/879}
 
 #Star Wars
   "Star Wars Collection":
@@ -100,9 +94,7 @@ collections:
 
 #Zombies
   "Zombie Collection":
-    template: {name: Collections, radarr: true, tag: pmm_zombies, order: alpha, poster: https://i.imgur.com/Qy1ckyd.jpeg"}
-    imdb_list:
-      - https://www.imdb.com/list/ls064286046
+    template: {name: Collections, radarr: true, tag: pmm_zombies, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, order: alpha, poster: https://i.imgur.com/Qy1ckyd.jpeg"}
 
 #Bourne Collection
   "The Bourne Collection":
@@ -114,11 +106,19 @@ collections:
 
 #Action Collection
   "Essential Action Movies":
-    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/davo1624/external/13797, order: alpha, summary: "Rotten Tomatoes' greatest Action films of all time.", poster: https://theposterdb.com/api/assets/52017}
+    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/external/14342, movie: "218, 603, 12780, 24428", order: alpha, summary: "Rotten Tomatoes' greatest Action films of all time.", poster: https://theposterdb.com/api/assets/52017}
+    filters:
+      title.not:
+        - "T2: Reprogramming The Terminator"
+        - "The Matrix Resurrections"
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
-    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/davo1624/external/13798, order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
+    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/external/14343, movie: "218, 603", order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
+    filters:
+      title.not:
+        - "T2: Reprogramming The Terminator"
+        - "The Matrix Resurrections"
 
 #Horror Collection
   "Essential Horror Movies":
@@ -130,8 +130,12 @@ collections:
 
 #Star Trek Collection
   "Star Trek Collection":
-    template: {name: Collections, radarr: true, tag: pmm_startrek, order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", poster: https://theposterdb.com/api/assets/146184}
-    tmdb_collection:
-      - 151
-      - 115570
-      - 115575
+    template: {name: Collections, radarr: true, tag: pmm_startrek, collection: "151, 115570, 115575", order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", poster: https://theposterdb.com/api/assets/146184}
+
+#Alien Franchise
+  "Alien Collection":
+    template: {name: Collections, radarr: true, tag: pmm_alien, collection: "8091, 135416", order: release, summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/65949}
+
+#Predator Collection
+  "Predator":
+    template: {name: Collections, radarr: true, tag: pmm_predator, collection: 399, order: release, tmdb_summary: 399, poster: https://theposterdb.com/api/assets/56806}
