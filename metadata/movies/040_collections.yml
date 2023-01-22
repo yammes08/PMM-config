@@ -106,7 +106,7 @@ collections:
 
 #Action Collection
   "Essential Action Movies":
-    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/external/14342, movie: "218, 603, 12780, 24428", order: alpha, summary: "Rotten Tomatoes' greatest Action films of all time.", poster: https://theposterdb.com/api/assets/52017}
+    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/external/14342, movie: "218, 603, 12780, 24428", order: alpha, summary: "Rotten Tomatoes' greatest Action films of all time.", poster: https://theposterdb.com/api/assets/69196}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
@@ -114,7 +114,7 @@ collections:
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
-    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/external/14343, movie: "218, 603", order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/51772}
+    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/external/14343, movie: "218, 603", order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/69223}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
@@ -122,7 +122,7 @@ collections:
 
 #Horror Collection
   "Essential Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/external/13801, movie: 11868, order: alpha, summary: "Rotten Tomatoes' greatest Horror films of all time.", poster: https://theposterdb.com/api/assets/51475} 
+    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/external/13801, movie: 11868, order: alpha, summary: "Rotten Tomatoes' greatest Horror films of all time.", poster: https://theposterdb.com/api/assets/69213}
 
 #Terminator Collection
   "Terminator Collection":
@@ -134,7 +134,7 @@ collections:
 
 #Alien Franchise
   "Alien Collection":
-    template: {name: Collections, radarr: true, tag: pmm_alien, collection: "8091, 135416", order: release, summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/65949}
+    template: {name: Collections, radarr: true, tag: pmm_alien, collection: "8091, 135416", order: release, summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/1213}
 
 #Predator Collection
   "Predator":

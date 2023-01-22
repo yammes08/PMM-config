@@ -137,17 +137,26 @@ libraries:
         use_remastered: false
         use_criterion: false
     operations:
+      assets_for_all: true
       delete_collections:
         configured: false
         managed: false
       content_rating_mapper:
+        G: gb/U
+        PG: gb/PG
+        gb/A: gb/PG
         gb/12A: gb/12
+        PG-13: gb/12
+        R: gb/15
+        gb/16: gb/15
+        gb/AA: gb/15
+        gb/X: gb/18
+        TV-MA: gb/18
 
   Movies for operations:
     library_name: Movies
     schedule: Weekly(monday)
     operations:
-      assets_for_all: true
       mass_genre_update: tmdb
       # mass_poster_update: tmdb
       # mass_content_rating_update: reset
