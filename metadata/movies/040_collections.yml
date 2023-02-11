@@ -2,6 +2,7 @@ external_templates:
   pmm: templates
   template_variables:
     collection_section: 999
+    use_separator: true
 
 translations:
   pmm: translations
@@ -47,18 +48,18 @@ collections:
 
 #Middle Earth
   "The Lord of the Rings Collection":
-    template: {name: Collections, radarr: true, tag: pmm_lotr, collection: 119, tmdb_summary: 119, order: release, poster: https://theposterdb.com/api/assets/113964 }
+    template: {name: Collections, radarr: true, tag: pmm_lotr, collection: 119, tmdb_summary: 119, order: release, poster: https://theposterdb.com/api/assets/113964}
 
 #Wizarding World
   "Harry Potter Collection":
-    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, tmdb_summary: 1241, order: release, poster: https://theposterdb.com/api/assets/545 }
+    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, tmdb_summary: 1241, order: release, poster: https://theposterdb.com/api/assets/545}
 
 #DC
   "Batman Collection":
-    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, poster: https://theposterdb.com/api/assets/79435 }
+    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, poster: https://theposterdb.com/api/assets/79435}
 
   "Superman Colection":
-    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, tmdb_summary: 8537, order: release, poster: https://theposterdb.com/api/assets/72726 }
+    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, tmdb_summary: 8537, order: release, poster: https://theposterdb.com/api/assets/72726}
 
 #James Bond
   "James Bond Collection":
@@ -71,10 +72,13 @@ collections:
 #MCU
   "Marvel Cinematic Universe":
     template: {name: Collections, radarr: true, tag: pmm_marvel, imdb: https://www.imdb.com/list/ls031310794/, order: release, poster: https://theposterdb.com/api/assets/879}
+    filters:
+      title.not:
+        - "Reaction Time"
 
 #Star Wars
   "Star Wars Collection":
-    template: {name: Collections, radarr: true, tag: pmm_starwars, collection: 10, tmdb_summary: 10, poster: https://theposterdb.com/api/assets/39137}
+    template: {name: Collections, radarr: true, tag: pmm_starwars, collection: 10, movie: "330459, 348350", tmdb_summary: 10, poster: https://theposterdb.com/api/assets/39137}
 
 #Studio Ghibli
   "Studio Ghibli Collection":
@@ -114,15 +118,20 @@ collections:
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
-    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/external/14343, movie: "218, 603", order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/69223}
+    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/external/14343, movie: "218, 603, 1091", order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/69223}
     filters:
       title.not:
         - "T2: Reprogramming The Terminator"
         - "The Matrix Resurrections"
+        - "The Thing: Terror Takes Shape"
 
 #Horror Collection
   "Essential Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/external/13801, movie: 11868, order: alpha, summary: "Rotten Tomatoes' greatest Horror films of all time.", poster: https://theposterdb.com/api/assets/69213}
+    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/external/13801, movie: "138, 1091, 11868", order: alpha, summary: "Rotten Tomatoes' greatest Horror films of all time.", poster: https://theposterdb.com/api/assets/69213}
+    filters:
+      title.not:
+        - "Drácula"
+        - "The Thing: Terror Takes Shape"
 
 #Terminator Collection
   "Terminator Collection":

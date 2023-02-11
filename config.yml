@@ -5,7 +5,7 @@ settings:
   asset_folders: true
   asset_depth: 1
   create_asset_folders: true
-  prioritize_assets: false
+  prioritize_assets: true
   dimensional_asset_rename: true
   download_url_assets: true
   show_missing_season_assets: false
@@ -18,7 +18,7 @@ settings:
   delete_not_scheduled: false
   run_again_delay: 2
   missing_only_released: false
-  show_unmanaged: false
+  show_unmanaged: true
   show_unconfigured: true
   show_filtered: false
   show_options: false
@@ -52,6 +52,17 @@ plex:
   clean_bundles: true
   empty_trash: true
   optimize: false
+trakt:
+  client_id: (redacted)
+  client_secret: (redacted)
+  pin:
+  authorization:
+    access_token: (redacted)
+    token_type: Bearer
+    expires_in: (redacted)
+    refresh_token: (redacted)
+    scope: public
+    created_at: (redacted)
 mdblist:
   apikey: (redacted)
   cache_expiration: 60
@@ -69,18 +80,18 @@ radarr:
   add_missing: true
   add_existing: true
   root_folder_path: /data/media/movies
-  monitor: false
+  monitor: true
   availability: released
   quality_profile: Bluray|WEB-1080p
   tag: pmm
-  search: false
+  search: true
   radarr_path:
   plex_path:
   upgrade_existing: false
 
 libraries:
   Movies:
-    report_path: /config/reports/Movies.yml
+    report_path: /config/reports/movies.yml
     metadata_path:
     - folder: config/metadata/movies/
     - pmm: seasonal
@@ -93,9 +104,24 @@ libraries:
         use_father: false
         use_labor: false
         sort_by: title.asc
+        radarr_add_missing: false
         radarr_tag: pmm_seasonal
         item_radarr_tag: pmm_seasonal
-    - pmm: separator_chart
+        tmdb_collection_halloween:
+        - 11716     # Addams Family
+        - 313086    # Conjuring
+        - 91361     # Halloween Collection
+        - 8581      # A Nightmare on Elm Street Collection
+        - 1733      # The Mummy Collection
+        - 8091      # Alien Collection
+        - 2980      # Ghostbusters
+        - 751156    # Hocus Pocus
+        tmdb_movie_halloween:
+        - 23437     # A Nightmare on Elm Street (2010)
+        imdb_list_halloween: "anything"
+        radarr_add_missing_halloween: true
+        radarr_tag_halloween: pmm_halloween
+        item_radarr_tag_halloween: pmm_halloween
     - pmm: separator_award
     - pmm: oscars
       template_variables:
@@ -104,14 +130,27 @@ libraries:
         collection_order: release
         radarr_tag: pmm_oscars
         item_radarr_tag: pmm_oscars
+    - pmm: separator_chart
     - pmm: basic
       template_variables:
         sort_by: title.asc
         radarr_tag: pmm_basic
     - pmm: decade
       template_variables:
-        sort_by: title.asc
+        sort_by: critic_rating.desc
         radarr_tag: pmm_decade
+    - pmm: flixpatrol
+      template_variables:
+        location_netflix: united_kingdom
+        location_disney: united_kingdom
+        location_hbo: world
+        location_hulu: world
+        location_paramount: world
+        location_prime: united_kingdom
+        radarr_tag: pmm_flixpatrol
+        item_radarr_tag: pmm_flixpatrol
+        radarr_monitor: false
+        radarr_search: false
     overlay_path:
     # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
     - remove_overlays: false                        # Set to true if you want to remove overlays
@@ -136,6 +175,7 @@ libraries:
         use_ultimate: false
         use_remastered: false
         use_criterion: false
+    - file: config/overlays/movies/content_rating.yml
     operations:
       assets_for_all: true
       delete_collections:
@@ -143,11 +183,13 @@ libraries:
         managed: false
       content_rating_mapper:
         G: gb/U
+        TV-G: gb/U
         PG: gb/PG
         gb/A: gb/PG
         gb/12A: gb/12
         PG-13: gb/12
         R: gb/15
+        TV-14: gb/15
         gb/16: gb/15
         gb/AA: gb/15
         gb/X: gb/18
@@ -191,6 +233,19 @@ libraries:
         use_edition: false
     operations:
       assets_for_all: true
+      content_rating_mapper:
+        G: gb/U
+        TV-G: gb/U
+        PG: gb/PG
+        gb/A: gb/PG
+        gb/12A: gb/12
+        PG-13: gb/12
+        R: gb/15
+        TV-14: gb/15
+        gb/16: gb/15
+        gb/AA: gb/15
+        gb/X: gb/18
+        TV-MA: gb/18
       mass_genre_update: tmdb
       # mass_poster_update: tmdb
       # mass_content_rating_update: reset
@@ -201,3 +256,13 @@ libraries:
       split_duplicates: false
       metadata_backup:
         path: /config/backups/TV/metadata.yml
+
+playlist_files:
+- pmm: playlist
+  template_variables:
+    use_arrow: false
+    use_dcau: false
+    use_pokemon: false
+    use_clonewars: false
+    use_dragonball: false
+    radarr_add_missing: false

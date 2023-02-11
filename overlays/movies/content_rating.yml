@@ -1,0 +1,115 @@
+#############################################################
+#           Dynamic UK Content Rating Overlay               #
+#############################################################
+
+templates:
+  BBFC_Rating_U_gbU:
+    optional:
+      - overlay_level
+    collection_level: <<overlay_level>>
+    overlay:
+      name: BBFC_Rating_U_gbU
+      horizontal_offset: 15
+      horizontal_align: right
+      vertical_offset: 15
+      vertical_align: bottom
+  BBFC_Rating_PG_gbPG:
+    optional:
+      - overlay_level
+    collection_level: <<overlay_level>>
+    overlay:
+      name: BBFC_Rating_PG_gbPG
+      horizontal_offset: 15
+      horizontal_align: right
+      vertical_offset: 15
+      vertical_align: bottom
+  BBFC_Rating_12_gb12:
+    optional:
+      - overlay_level
+    collection_level: <<overlay_level>>
+    overlay:
+      name: BBFC_Rating_12_gb12
+      horizontal_offset: 15
+      horizontal_align: right
+      vertical_offset: 15
+      vertical_align: bottom
+  BBFC_Rating_15_gb15:
+    optional:
+      - overlay_level
+    collection_level: <<overlay_level>>
+    overlay:
+      name: BBFC_Rating_15_gb15
+      horizontal_offset: 15
+      horizontal_align: right
+      vertical_offset: 15
+      vertical_align: bottom
+  BBFC_Rating_18_gb18:
+    optional:
+      - overlay_level
+    collection_level: <<overlay_level>>
+    overlay:
+      name: BBFC_Rating_18_gb18
+      horizontal_offset: 15
+      horizontal_align: right
+      vertical_offset: 15
+      vertical_align: bottom
+  BBFC_Rating_R18_gbR18:
+    optional:
+      - overlay_level
+    collection_level: <<overlay_level>>
+    overlay:
+      name: BBFC_Rating_R18_gbR18
+      horizontal_offset: 15
+      horizontal_align: right
+      vertical_offset: 15
+      vertical_align: bottom
+
+overlays:
+  BBFC_Rating_U_gbU:
+    template:
+      - name: BBFC_Rating_U_gbU
+    plex_search:
+      all:
+        any:
+          - content_rating:
+            - gb/U
+  BBFC_Rating_PG_gbPG:
+    template:
+      - name: BBFC_Rating_PG_gbPG
+    plex_search:
+      all:
+        any:
+        - content_rating:
+          - gb/PG
+  BBFC_Rating_12_gb12:
+    template:
+      - name: BBFC_Rating_12_gb12
+    plex_search:
+      all:
+        any:
+          - content_rating:
+            - gb/12
+  BBFC_Rating_15_gb15:
+    template:
+      - name: BBFC_Rating_15_gb15
+    plex_search:
+      all:
+        any:
+          - content_rating:
+            - gb/15
+  BBFC_Rating_18_gb18:
+    template:
+      - name: BBFC_Rating_18_gb18
+    plex_search:
+      all:
+        any:
+          - content_rating:
+            - gb/18
+  BBFC_Rating_R18_gbR18:
+    template:
+      - name: BBFC_Rating_R18_gbR18
+    plex_search:
+      all:
+        any:
+          - content_rating:
+            - gb/R18
