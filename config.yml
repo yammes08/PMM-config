@@ -70,7 +70,7 @@ tmdb:
   apikey: (redacted)
   language: en
   cache_expiration: 60
-  region: gb
+  region: GB
 omdb:
   apikey: (redacted)
   cache_expiration: 60
@@ -82,13 +82,13 @@ radarr:
   root_folder_path: /data/media/movies
   monitor: true
   availability: released
-  quality_profile: Bluray|WEB-1080p
+  quality_profile: SQP 1.5
   tag: pmm
   search: true
   radarr_path:
   plex_path:
   upgrade_existing: false
-
+  ignore_cache: false
 libraries:
   Movies:
     report_path: /config/reports/movies.yml
@@ -118,10 +118,11 @@ libraries:
         - 751156    # Hocus Pocus
         tmdb_movie_halloween:
         - 23437     # A Nightmare on Elm Street (2010)
-        imdb_list_halloween: "anything"
+        imdb_list_halloween: anything
         radarr_add_missing_halloween: true
         radarr_tag_halloween: pmm_halloween
         item_radarr_tag_halloween: pmm_halloween
+        schedule_mother: range(03/17-03/22)
     - pmm: separator_award
     - pmm: oscars
       template_variables:
@@ -130,7 +131,7 @@ libraries:
         collection_order: release
         radarr_tag: pmm_oscars
         item_radarr_tag: pmm_oscars
-    - pmm: separator_chart
+    # - pmm: separator_chart
     - pmm: basic
       template_variables:
         sort_by: title.asc
@@ -139,22 +140,23 @@ libraries:
       template_variables:
         sort_by: critic_rating.desc
         radarr_tag: pmm_decade
-    - pmm: flixpatrol
-      template_variables:
-        location_netflix: united_kingdom
-        location_disney: united_kingdom
-        location_hbo: world
-        location_hulu: world
-        location_paramount: world
-        location_prime: united_kingdom
-        radarr_tag: pmm_flixpatrol
-        item_radarr_tag: pmm_flixpatrol
-        radarr_monitor: false
-        radarr_search: false
+        collection_section: 999
+    # - pmm: flixpatrol
+      # template_variables:
+        # location_netflix: united_kingdom
+        # location_disney: united_kingdom
+        # location_hbo: world
+        # location_hulu: world
+        # location_paramount: world
+        # location_prime: united_kingdom
+        # radarr_tag: pmm_flixpatrol
+        # item_radarr_tag: pmm_flixpatrol
+        # radarr_monitor: false
+        # radarr_search: false
     overlay_path:
     # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
-    - remove_overlays: false                        # Set to true if you want to remove overlays
-    - reapply_overlay: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
+    - remove_overlays: false                     # Set to true if you want to remove overlays
+    - reapply_overlay: false                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
     - pmm: mediastinger
     - pmm: resolution
       template_variables:
@@ -162,30 +164,41 @@ libraries:
         use_720p: false
         use_576p: false
         use_480p: false
-        use_directorscut: false
         use_extended: false
         use_uncut: false
         use_unrated: false
         use_special: false
-        use_finalcut: false
         use_anniversary: false
         use_collector: false
+        use_diamond: false
+        use_platinum: false
+        use_directors: false
+        use_final: false
         use_international: false
         use_theatrical: false
         use_ultimate: false
+        use_alternate: false
+        use_coda: false
         use_remastered: false
         use_criterion: false
+        use_richarddonner: false
+        use_blackchrome: false
+        use_definitive: false
+        use_ulysses: false
     - file: config/overlays/movies/content_rating.yml
     operations:
       assets_for_all: true
+      # mass_poster_update: tmdb
       delete_collections:
         configured: false
-        managed: false
+        managed: true
       content_rating_mapper:
         G: gb/U
         TV-G: gb/U
         PG: gb/PG
         gb/A: gb/PG
+        gb/9+: gb/PG
+        TV-PG: gb/PG
         gb/12A: gb/12
         PG-13: gb/12
         R: gb/15
@@ -194,6 +207,9 @@ libraries:
         gb/AA: gb/15
         gb/X: gb/18
         TV-MA: gb/18
+        None: gb/Not Rated
+        Not Rated: gb/Not Rated
+        NR: gb/Not Rated
 
   Movies for operations:
     library_name: Movies

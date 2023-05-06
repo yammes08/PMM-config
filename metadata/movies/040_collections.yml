@@ -1,11 +1,8 @@
 external_templates:
   pmm: templates
   template_variables:
-    collection_section: 999
+    collection_section: "998"
     use_separator: true
-
-translations:
-  pmm: translations
 
 templates:
   Collections:
@@ -29,12 +26,11 @@ templates:
     sync_mode: sync
     collection_order: <<order>>
     url_poster: <<poster>>
-    sort_title: <<collection_name>>
+    sort_title: "!998_<<collection_name>>"
     radarr_add_missing: <<radarr>>
     radarr_tag: <<tag>>
     item_radarr_tag: <<tag>>
     ignore_blank_results: true
-    #schedule: weekly(saturday)
 
 collections:
 
@@ -42,7 +38,6 @@ collections:
     template:
       - name: separator
         separator: personal
-      - name: translation
         key_name: Personal
         translation_key: separator
 
@@ -56,7 +51,7 @@ collections:
 
 #DC
   "Batman Collection":
-    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, poster: https://theposterdb.com/api/assets/79435}
+    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, poster: https://theposterdb.com/api/assets/6084}
 
   "Superman Colection":
     template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, tmdb_summary: 8537, order: release, poster: https://theposterdb.com/api/assets/72726}
@@ -86,7 +81,7 @@ collections:
 
 #Blade Runner Collection
   "Blade Runner Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bladerunner, collection: 422837, tmdb_summary: 422837, order: release, poster: https://theposterdb.com/api/assets/28342}
+    template: {name: Collections, radarr: true, tag: pmm_bladerunner, collection: 422837, tmdb_summary: 422837, order: release, poster: https://theposterdb.com/api/assets/33975}
 
 #Back to the Future Collection
   "Back to the Future Collection":
@@ -101,7 +96,7 @@ collections:
     template: {name: Collections, radarr: true, tag: pmm_zombies, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, order: alpha, poster: https://i.imgur.com/Qy1ckyd.jpeg"}
 
 #Bourne Collection
-  "The Bourne Collection":
+  "Bourne Collection":
     template: {name: Collections, radarr: true, tag: pmm_bourne, collection: 31562, tmdb_summary: 31562, order: release, poster: https://theposterdb.com/api/assets/5420}
 
 #Jurassic Park
@@ -110,28 +105,15 @@ collections:
 
 #Action Collection
   "Essential Action Movies":
-    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/external/14342, movie: "218, 603, 12780, 24428", order: alpha, summary: "Rotten Tomatoes' greatest Action films of all time.", poster: https://theposterdb.com/api/assets/69196}
-    filters:
-      title.not:
-        - "T2: Reprogramming The Terminator"
-        - "The Matrix Resurrections"
+    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 140 Essential Sci-Fi Movies..", poster: https://theposterdb.com/api/assets/69196}
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
-    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/external/14343, movie: "218, 603, 1091", order: alpha, summary: "Rotten Tomatoes' greatest Sci-Fi films of all time.", poster: https://theposterdb.com/api/assets/69223}
-    filters:
-      title.not:
-        - "T2: Reprogramming The Terminator"
-        - "The Matrix Resurrections"
-        - "The Thing: Terror Takes Shape"
+    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-150-essential-sci-fi-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 150 Essential Sci-Fi Movies.", poster: https://theposterdb.com/api/assets/69223}
 
 #Horror Collection
   "Essential Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/external/13801, movie: "138, 1091, 11868", order: alpha, summary: "Rotten Tomatoes' greatest Horror films of all time.", poster: https://theposterdb.com/api/assets/69213}
-    filters:
-      title.not:
-        - "Drácula"
-        - "The Thing: Terror Takes Shape"
+    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-the-200-best-horror-movies-of-all-time, order: alpha, summary: "Rotten Tomatoes - 200 Essential Horror Movies.", poster: https://theposterdb.com/api/assets/69213}
 
 #Terminator Collection
   "Terminator Collection":
@@ -146,5 +128,21 @@ collections:
     template: {name: Collections, radarr: true, tag: pmm_alien, collection: "8091, 135416", order: release, summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/1213}
 
 #Predator Collection
-  "Predator":
+  "Predator Collection":
     template: {name: Collections, radarr: true, tag: pmm_predator, collection: 399, order: release, tmdb_summary: 399, poster: https://theposterdb.com/api/assets/56806}
+
+#Pirates of the Caribbean Collection
+  "Pirates of the Caribbean Collection":
+    template: {name: Collections, radarr: true, tag: pmm_potc, collection: 295, order: release, tmdb_summary: 295, poster: https://theposterdb.com/api/assets/49956}
+
+#Fast & Furious
+  "Fast & Furious Collection":
+    template: {name: Collections, radarr: true, tag: pmm_fandf, collection: 9485, movie: 384018, order: release, summary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/166150}
+
+#John Wick Collection
+  "John Wick":
+    template: {name: Collections, radarr: true, tag: pmm_johnwick, collection: 404609, tmdb_summary: 404609, poster: https://theposterdb.com/api/assets/17550}
+
+#Kingsman Collection
+  "Kingsman":
+    template: {name: Collections, radarr: true, tag: pmm_kingsman, collection: 391860, tmdb_summary: 391860, poster: https://theposterdb.com/api/assets/6634}

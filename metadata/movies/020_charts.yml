@@ -2,20 +2,26 @@ external_templates:
   pmm: templates
   template_variables:
     collection_section: "01"
-    image: "chart/Trakt Popular"
-
-translations:
-  pmm: translations
 
 templates:
   popular:
     default:
       summary_popular: Trakt most watched <<library_type>>s of the week
     summary: <<summary_<<key>>>>
-    # file_poster: config/assets/<<collection_name>>/poster.jpg
+    file_poster: config/assets/<<collection_name>>/poster.jpg
     radarr_add_missing: true
+    radarr_search: true
     radarr_tag: pmm_popular
     item_radarr_tag: pmm_popular
+  top_new_horror:
+    default:
+      summary_top_new_horror: Top new horror <<library_type>>s
+    summary: <<summary_<<key>>>>
+    file_poster: config/assets/<<collection_name>>/poster.jpg
+    radarr_add_missing: true
+    radarr_search: true
+    radarr_tag: pmm_top_new_horror
+    item_radarr_tag: pmm_top_new_horror
 
 collections:
   Popular:
@@ -25,6 +31,16 @@ collections:
       key: popular
     template:
       - name: popular
+      - name: shared
+    sync_mode: sync
+    collection_order: alpha
+  Top New Horror:
+    mdblist_list:
+      url: https://mdblist.com/lists/yamtrakt/top-new-horror
+    variables:
+      key: top_new_horror
+    template:
+      - name: top_new_horror
       - name: shared
     sync_mode: sync
     collection_order: alpha
