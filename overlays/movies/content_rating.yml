@@ -9,9 +9,9 @@ templates:
     collection_level: <<overlay_level>>
     overlay:
       name: BBFC_Rating_U_gbU
-      horizontal_offset: 15
+      horizontal_offset: 20
       horizontal_align: right
-      vertical_offset: 15
+      vertical_offset: 20
       vertical_align: bottom
   BBFC_Rating_PG_gbPG:
     optional:
@@ -19,9 +19,9 @@ templates:
     collection_level: <<overlay_level>>
     overlay:
       name: BBFC_Rating_PG_gbPG
-      horizontal_offset: 15
+      horizontal_offset: 20
       horizontal_align: right
-      vertical_offset: 15
+      vertical_offset: 20
       vertical_align: bottom
   BBFC_Rating_12_gb12:
     optional:
@@ -29,9 +29,9 @@ templates:
     collection_level: <<overlay_level>>
     overlay:
       name: BBFC_Rating_12_gb12
-      horizontal_offset: 15
+      horizontal_offset: 20
       horizontal_align: right
-      vertical_offset: 15
+      vertical_offset: 20
       vertical_align: bottom
   BBFC_Rating_15_gb15:
     optional:
@@ -39,9 +39,9 @@ templates:
     collection_level: <<overlay_level>>
     overlay:
       name: BBFC_Rating_15_gb15
-      horizontal_offset: 15
+      horizontal_offset: 20
       horizontal_align: right
-      vertical_offset: 15
+      vertical_offset: 20
       vertical_align: bottom
   BBFC_Rating_18_gb18:
     optional:
@@ -49,20 +49,20 @@ templates:
     collection_level: <<overlay_level>>
     overlay:
       name: BBFC_Rating_18_gb18
-      horizontal_offset: 15
+      horizontal_offset: 20
       horizontal_align: right
-      vertical_offset: 15
+      vertical_offset: 20
       vertical_align: bottom
-  BBFC_Rating_R18_gbR18:
-    optional:
-      - overlay_level
-    collection_level: <<overlay_level>>
-    overlay:
-      name: BBFC_Rating_R18_gbR18
-      horizontal_offset: 15
-      horizontal_align: right
-      vertical_offset: 15
-      vertical_align: bottom
+  # BBFC_Rating_R18_gbR18:
+    # optional:
+      # - overlay_level
+    # collection_level: <<overlay_level>>
+    # overlay:
+      # name: BBFC_Rating_R18_gbR18
+      # horizontal_offset: 20
+      # horizontal_align: right
+      # vertical_offset: 20
+      # vertical_align: bottom
 
 overlays:
   BBFC_Rating_U_gbU:
@@ -105,11 +105,11 @@ overlays:
         any:
           - content_rating:
             - gb/18
-  BBFC_Rating_R18_gbR18:
-    template:
-      - name: BBFC_Rating_R18_gbR18
-    plex_search:
-      all:
-        any:
-          - content_rating:
-            - gb/R18
+  # BBFC_Rating_R18_gbR18:
+    # template:
+      # - name: BBFC_Rating_R18_gbR18
+    # plex_search:
+      # all:
+        # any:
+          # - content_rating:
+            # - gb/R18

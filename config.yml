@@ -75,14 +75,14 @@ omdb:
   apikey: (redacted)
   cache_expiration: 60
 radarr:
-  url: http://radarr:7878
+  url: http://radarr-4k:7878
   token: (redacted)
   add_missing: true
   add_existing: true
-  root_folder_path: /data/media/movies
+  root_folder_path: /data/media/4k-movies
   monitor: true
   availability: released
-  quality_profile: SQP 1.5
+  quality_profile: 4K Movies
   tag: pmm
   search: true
   radarr_path:
@@ -136,6 +136,12 @@ libraries:
       template_variables:
         sort_by: title.asc
         radarr_tag: pmm_basic
+    - pmm: imdb
+      template_variables:
+        use_popular: false
+        use_lowest: false
+        radarr_tag: pmm_imdb_250
+        item_radarr_tag: pmm_imdb_250
     - pmm: decade
       template_variables:
         sort_by: critic_rating.desc
@@ -151,7 +157,7 @@ libraries:
         # location_prime: united_kingdom
         # radarr_tag: pmm_flixpatrol
         # item_radarr_tag: pmm_flixpatrol
-        # radarr_monitor: false
+        # radarr_monitor: none
         # radarr_search: false
     overlay_path:
     # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
@@ -191,7 +197,7 @@ libraries:
       # mass_poster_update: tmdb
       delete_collections:
         configured: false
-        managed: true
+        managed: false
       content_rating_mapper:
         G: gb/U
         TV-G: gb/U

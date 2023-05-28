@@ -14,8 +14,12 @@ templates:
       - tmdb
       - imdb
       - mdb
+      - trakt
       - order
       - radarr
+      - poster
+      - sort_title
+      - radarr_quality
     tmdb_collection_details: <<collection>>
     tmdb_movie: <<movie>>
     tmdb_summary: <<tmdb_summary>>
@@ -23,13 +27,15 @@ templates:
     tmdb_list: <<tmdb>>
     imdb_list: <<imdb>>
     mdblist_list: <<mdb>>
+    trakt_list: <<trakt>>
     sync_mode: sync
     collection_order: <<order>>
     url_poster: <<poster>>
-    sort_title: "!998_<<collection_name>>"
+    sort_title: <<sort_title>>
     radarr_add_missing: <<radarr>>
     radarr_tag: <<tag>>
     item_radarr_tag: <<tag>>
+    radarr_quality: <<radarr_quality>>
     ignore_blank_results: true
 
 collections:
@@ -41,39 +47,39 @@ collections:
         key_name: Personal
         translation_key: separator
 
-#Middle Earth
+#The Lord of the Rings
   "The Lord of the Rings Collection":
-    template: {name: Collections, radarr: true, tag: pmm_lotr, collection: 119, tmdb_summary: 119, order: release, poster: https://theposterdb.com/api/assets/113964}
+    template: {name: Collections, radarr: true, tag: pmm_lotr, collection: 119, tmdb_summary: 119, order: release, sort_title: "!998_Lord of the Rings Collection", poster: https://www.themoviedb.org/t/p/original/oENY593nKRVL2PnxXsMtlh8izb4.jpg}
 
-#Wizarding World
+#Harry Potter
   "Harry Potter Collection":
-    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, tmdb_summary: 1241, order: release, poster: https://theposterdb.com/api/assets/545}
+    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, tmdb_summary: 1241, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/545}
 
 #DC
   "Batman Collection":
-    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, poster: https://theposterdb.com/api/assets/6084}
+    template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/6084}
 
   "Superman Colection":
-    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, tmdb_summary: 8537, order: release, poster: https://theposterdb.com/api/assets/72726}
+    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, movie: 624479,tmdb_summary: 8537, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/72726}
 
 #James Bond
   "James Bond Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bond, collection: 645, tmdb_summary: 645, order: release, poster: https://theposterdb.com/api/assets/24922}
+    template: {name: Collections, radarr: true, tag: pmm_bond, collection: 645, tmdb_summary: 645, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/24922}
 
 #Mission Impossible
   "Mission: Impossible Collection":
-    template: {name: Collections, radarr: true, tag: pmm_mi, collection: 87359, tmdb_summary: 87359, order: release, poster: https://theposterdb.com/api/assets/12118}
+    template: {name: Collections, radarr: true, tag: pmm_mi, collection: 87359, tmdb_summary: 87359, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/12118}
 
 #MCU
   "Marvel Cinematic Universe":
-    template: {name: Collections, radarr: true, tag: pmm_marvel, imdb: https://www.imdb.com/list/ls031310794/, order: release, poster: https://theposterdb.com/api/assets/879}
+    template: {name: Collections, radarr: true, tag: pmm_marvel, imdb: https://www.imdb.com/list/ls031310794/, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/879}
     filters:
       title.not:
         - "Reaction Time"
 
 #Star Wars
   "Star Wars Collection":
-    template: {name: Collections, radarr: true, tag: pmm_starwars, collection: 10, movie: "330459, 348350", tmdb_summary: 10, poster: https://theposterdb.com/api/assets/39137}
+    template: {name: Collections, radarr: true, tag: pmm_starwars, collection: 10, movie: "330459, 348350", tmdb_summary: 10, order: release, sort_title: "!998_<<collection_name>>",poster: https://theposterdb.com/api/assets/39137}
 
 #Studio Ghibli
   "Studio Ghibli Collection":
@@ -81,68 +87,96 @@ collections:
 
 #Blade Runner Collection
   "Blade Runner Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bladerunner, collection: 422837, tmdb_summary: 422837, order: release, poster: https://theposterdb.com/api/assets/33975}
+    template: {name: Collections, radarr: true, tag: pmm_bladerunner, collection: 422837, tmdb_summary: 422837, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/33975}
 
 #Back to the Future Collection
   "Back to the Future Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bttf, collection: 264, tmbd_summary: 264, order: release, poster: https://theposterdb.com/api/assets/87588}
+    template: {name: Collections, radarr: true, tag: pmm_bttf, collection: 264, tmbd_summary: 264, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/87588}
 
 #Indiana Jones
   "Indiana Jones Collection":
-    template: {name: Collections, radarr: true, tag: pmm_indiana, collection: 84, tmdb_summary: 84, order: release, poster: https://theposterdb.com/api/assets/21883}
+    template: {name: Collections, radarr: true, tag: pmm_indiana, collection: 84, tmdb_summary: 84, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/21883}
 
 #Zombies
   "Zombie Collection":
-    template: {name: Collections, radarr: true, tag: pmm_zombies, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, order: alpha, poster: https://i.imgur.com/Qy1ckyd.jpeg"}
+    template: {name: Collections, radarr: true, tag: pmm_zombies, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, order: alpha, sort_title: "!998_<<collection_name>>", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
 
 #Bourne Collection
   "Bourne Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bourne, collection: 31562, tmdb_summary: 31562, order: release, poster: https://theposterdb.com/api/assets/5420}
+    template: {name: Collections, radarr: true, tag: pmm_bourne, collection: 31562, tmdb_summary: 31562, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/5420}
 
 #Jurassic Park
   "Jurassic Park Collection":
-    template: {name: Collections, radarr: true, tag: pmm_jpark, collection: 328, tmdb_summary: 328, order: release, poster: https://theposterdb.com/api/assets/27563}
+    template: {name: Collections, radarr: true, tag: pmm_jpark, collection: 328, tmdb_summary: 328, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/27563}
 
 #Action Collection
   "Essential Action Movies":
-    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 140 Essential Sci-Fi Movies..", poster: https://theposterdb.com/api/assets/69196}
+    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 140 Essential Sci-Fi Movies..", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69196}
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
-    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-150-essential-sci-fi-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 150 Essential Sci-Fi Movies.", poster: https://theposterdb.com/api/assets/69223}
+    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-150-essential-sci-fi-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 150 Essential Sci-Fi Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69223}
 
 #Horror Collection
   "Essential Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-the-200-best-horror-movies-of-all-time, order: alpha, summary: "Rotten Tomatoes - 200 Essential Horror Movies.", poster: https://theposterdb.com/api/assets/69213}
+    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-the-200-best-horror-movies-of-all-time, order: alpha, summary: "Rotten Tomatoes - 200 Essential Horror Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69213}
 
 #Terminator Collection
   "Terminator Collection":
-    template: {name: Collections, radarr: true, tag: pmm_terminator, collection: 528, tmdb_summary: 528, order: release, poster: https://theposterdb.com/api/assets/24273}
+    template: {name: Collections, radarr: true, tag: pmm_terminator, collection: 528, tmdb_summary: 528, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/24273}
 
 #Star Trek Collection
   "Star Trek Collection":
-    template: {name: Collections, radarr: true, tag: pmm_startrek, collection: "151, 115570, 115575", order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", poster: https://theposterdb.com/api/assets/146184}
+    template: {name: Collections, radarr: true, tag: pmm_startrek, collection: "151, 115570, 115575", order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/146184}
 
 #Alien Franchise
   "Alien Collection":
-    template: {name: Collections, radarr: true, tag: pmm_alien, collection: "8091, 135416", order: release, summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", poster: https://theposterdb.com/api/assets/1213}
+    template: {name: Collections, radarr: true, tag: pmm_alien, collection: "8091, 135416", order: release, summary: "The Alien franchise is a science fiction horror franchise, consisting primarily of a series of films focusing on the voracious extraterrestrial endoparasitoid species Xenomorph XX121, commonly referred to simply as `the Alien`", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/1213}
 
 #Predator Collection
   "Predator Collection":
-    template: {name: Collections, radarr: true, tag: pmm_predator, collection: 399, order: release, tmdb_summary: 399, poster: https://theposterdb.com/api/assets/56806}
+    template: {name: Collections, radarr: true, tag: pmm_predator, collection: 399, order: release, tmdb_summary: 399, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/56806}
 
 #Pirates of the Caribbean Collection
   "Pirates of the Caribbean Collection":
-    template: {name: Collections, radarr: true, tag: pmm_potc, collection: 295, order: release, tmdb_summary: 295, poster: https://theposterdb.com/api/assets/49956}
+    template: {name: Collections, radarr: true, tag: pmm_potc, collection: 295, order: release, tmdb_summary: 295, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/49956}
 
 #Fast & Furious
   "Fast & Furious Collection":
-    template: {name: Collections, radarr: true, tag: pmm_fandf, collection: 9485, movie: 384018, order: release, summary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", poster: https://theposterdb.com/api/assets/166150}
+    template: {name: Collections, radarr: true, tag: pmm_fandf, collection: 9485, movie: 384018, order: release, summary: "Fast & Furious (originally The Fast and the Furious) is an American media franchise centered on a series of action films that is largely concerned with illegal street racing, heists and spies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/166150}
 
 #John Wick Collection
-  "John Wick":
-    template: {name: Collections, radarr: true, tag: pmm_johnwick, collection: 404609, tmdb_summary: 404609, poster: https://theposterdb.com/api/assets/17550}
+  "John Wick Collection":
+    template: {name: Collections, radarr: true, tag: pmm_johnwick, collection: 404609, tmdb_summary: 404609, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/17550}
 
 #Kingsman Collection
   "Kingsman":
-    template: {name: Collections, radarr: true, tag: pmm_kingsman, collection: 391860, tmdb_summary: 391860, poster: https://theposterdb.com/api/assets/6634}
+    template: {name: Collections, radarr: true, tag: pmm_kingsman, collection: 391860, tmdb_summary: 391860, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/6634}
+
+#Film School Rejects Horror
+  "Film School Rejects: Best Horror Movies":
+    template: {name: Collections, radarr: true, tag: pmm_fsr_horror, mdb: https://mdblist.com/lists/yamtrakt/film-school-rejects-the-50-best-horror-movies-ever, order: alpha, summary: "Film School Rejects - The 50 Best Horror Movies Ever.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/321744}
+
+#X-Men Collection
+  "X-Men Collection":
+    template: {name: Collections, radarr: true, tag: pmm_xmen, imdb: https://www.imdb.com/list/ls026465600, order: release, tmdb_summary: 748, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/10}
+
+#Twilight Saga
+  "The Twilight Saga":
+    template: {name: Collections, radarr: true, tag: pmm_twilight, collection: 33514, order: release, tmdb_summary: 33514, sort_title: "!998_Twilight Saga", poster: https://theposterdb.com/api/assets/1132}
+
+#Spider-Man
+  "Spider-Man Collection":
+    template: {name: Collections, radarr: true, tag: pmm_spiderman, collection: "556, 125574", order: release, tmdb_summary: 556, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/141787}
+
+#Hobbit
+  "The Hobbit Collection":
+    template: {name: Collections, radarr: true, tag: pmm_hobbit, collection: 121938, order: release, summary: "The Hobbit collection is a three-part epic fantasy-adventure film directed and produced by Peter Jackson and based on J. R. R. Tolkien's fantasy novel of the same name. The trilogy of films are set in Middle-earth 60 years before \"The Lord of the Rings\", and act as a prequel to Jackson's The Lord of the Rings trilogy.", sort_title: "!998_Hobbit Collection", poster: https://www.themoviedb.org/t/p/original/gwHNIXA6YeYsI9XgX4g1UmLDCxo.jpg}
+
+#Shrek
+  "Shrek Collection":
+    template: {name: Collections, radarr: true, tag: pmm_shrek, collection: 2150, order: release, tmdb_summary: 2150, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/53685}
+
+# Audio Showcase
+  "Audio Showcase":
+    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: 4K Movies (HQ), trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Get ready for cinematic adventures where the power of sound takes center stage, transporting you on a captivating sonic journey like no other. These immersive soundscapes deliver an auditory experience that will leave you breathless and exhilarated.", sort_title: "!998_<<collection_name>>"}
