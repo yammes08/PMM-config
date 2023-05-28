@@ -179,4 +179,4 @@ collections:
 
 # Audio Showcase
   "Audio Showcase":
-    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: 4K Movies (HQ), trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Get ready for cinematic adventures where the power of sound takes center stage, transporting you on a captivating sonic journey like no other. These immersive soundscapes deliver an auditory experience that will leave you breathless and exhilarated.", sort_title: "!998_<<collection_name>>"}
+    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: 4K Movies (HQ), trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Delve into a curated selection of films that feature exceptional sound design and sonic detail.", sort_title: "!998_<<collection_name>>"}
