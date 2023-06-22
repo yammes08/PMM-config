@@ -36,6 +36,7 @@ templates:
     radarr_tag: <<tag>>
     item_radarr_tag: <<tag>>
     radarr_quality: <<radarr_quality>>
+    radarr_search: true
     ignore_blank_results: true
 
 collections:
@@ -75,7 +76,13 @@ collections:
     template: {name: Collections, radarr: true, tag: pmm_marvel, imdb: https://www.imdb.com/list/ls031310794/, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/879}
     filters:
       title.not:
-        - "Reaction Time"
+        - "Inhumans"
+        - "Inhumans: The First Chapter"
+        - "Marvel: 75 Years, From Pulp to Pop!"
+        - "Marvel 75 Years: From Pulp to Pop!"
+        - "Marvel Studios: Assembling a Universe"
+        - "Marvel Studios: Expanding the Universe"
+        - "Helstrom"
 
 #Star Wars
   "Star Wars Collection":
@@ -150,7 +157,7 @@ collections:
     template: {name: Collections, radarr: true, tag: pmm_johnwick, collection: 404609, tmdb_summary: 404609, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/17550}
 
 #Kingsman Collection
-  "Kingsman":
+  "Kingsman Collection":
     template: {name: Collections, radarr: true, tag: pmm_kingsman, collection: 391860, tmdb_summary: 391860, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/6634}
 
 #Film School Rejects Horror
@@ -177,6 +184,10 @@ collections:
   "Shrek Collection":
     template: {name: Collections, radarr: true, tag: pmm_shrek, collection: 2150, order: release, tmdb_summary: 2150, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/53685}
 
-# Audio Showcase
+#Audio Showcase
   "Audio Showcase":
-    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: 4K Movies (HQ), trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Delve into a curated selection of films that feature exceptional sound design and sonic detail.", sort_title: "!998_<<collection_name>>"}
+    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: HQ Movies (SQP-3), trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Delve into a curated selection of films that feature exceptional sound design and sonic detail.", sort_title: "!998_<<collection_name>>"}
+
+#Transformers
+  "Transformers Collection":
+    template: {name: Collections, radarr: true, tag: pmm_tf, collection: "8650, 939352", movie: 424783, order: release, tmdb_summary: 8650, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/13251}

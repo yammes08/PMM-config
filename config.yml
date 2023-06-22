@@ -1,7 +1,7 @@
 settings:
   cache: true
   cache_expiration: 30
-  asset_directory: /config/assets
+  # asset_directory: /config/assets  # Now defined per-library
   asset_folders: true
   asset_depth: 1
   create_asset_folders: true
@@ -36,6 +36,7 @@ settings:
   check_nightly: false
   custom_repo:
   playlist_exclude_users:
+  asset_directory:
 webhooks:
   error: notifiarr
   version: notifiarr
@@ -80,9 +81,9 @@ radarr:
   add_missing: true
   add_existing: true
   root_folder_path: /data/media/4k-movies
-  monitor: true
+  monitor: movie
   availability: released
-  quality_profile: 4K Movies
+  quality_profile: Movies (SQP-2)
   tag: pmm
   search: true
   radarr_path:
@@ -91,6 +92,8 @@ radarr:
   ignore_cache: false
 libraries:
   Movies:
+    settings:
+      asset_directory: /config/assets/movies
     report_path: /config/reports/movies.yml
     metadata_path:
     - folder: config/metadata/movies/
@@ -200,6 +203,7 @@ libraries:
         managed: false
       content_rating_mapper:
         G: gb/U
+        TV-Y7: gb/U
         TV-G: gb/U
         PG: gb/PG
         gb/A: gb/PG
@@ -233,6 +237,8 @@ libraries:
         path: /config/backups/Movies/metadata.yml
 
   TV Shows:
+    settings:
+      asset_directory: /config/assets/tv_shows
     report_path: /config/reports/TV_Shows.yml
     overlay_path:
     # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
@@ -253,13 +259,80 @@ libraries:
         use_576p: false
         use_480p: false
         use_edition: false
+    - pmm: status         # AIRING
+      template_variables:
+        use_returning: false
+        use_canceled: false
+        use_ended: false
+        font_color: '#2ECC71'
+        font_size: 64
+        text_airing: ●
+        stroke_width: 6
+        stroke_color: '#00000099'
+        vertical_align: bottom
+        vertical_offset: 45
+        horizontal_align: left
+        horizontal_offset: 45
+        back_width: 0
+        back_height: 0
+    - pmm: status         # RETURNING
+      template_variables:
+        use_airing: false
+        use_canceled: false
+        use_ended: false
+        font_color: '#3498DB'
+        font_size: 64
+        text_returning: ●
+        stroke_width: 6
+        stroke_color: '#00000099'
+        vertical_align: bottom
+        vertical_offset: 45
+        horizontal_align: left
+        horizontal_offset: 45
+        back_width: 0
+        back_height: 0
+    - pmm: status         # CANCELED
+      template_variables:
+        use_returning: false
+        use_airing: false
+        use_ended: false
+        font_color: '#E74C3C'
+        font_size: 64
+        text_canceled: ●
+        stroke_width: 6
+        stroke_color: '#00000099'
+        vertical_align: bottom
+        vertical_offset: 45
+        horizontal_align: left
+        horizontal_offset: 45
+        back_width: 0
+        back_height: 0
+    - pmm: status         # ENDED
+      template_variables:
+        use_airing: false
+        use_canceled: false
+        use_returning: false
+        font_color: '#E74C3C'
+        font_size: 64
+        text_ended: ●
+        stroke_width: 6
+        stroke_color: '#00000099'
+        vertical_align: bottom
+        vertical_offset: 45
+        horizontal_align: left
+        horizontal_offset: 45
+        back_width: 0
+        back_height: 0
     operations:
       assets_for_all: true
       content_rating_mapper:
         G: gb/U
+        TV-Y7: gb/U
         TV-G: gb/U
         PG: gb/PG
         gb/A: gb/PG
+        gb/9+: gb/PG
+        TV-PG: gb/PG
         gb/12A: gb/12
         PG-13: gb/12
         R: gb/15
@@ -268,6 +341,9 @@ libraries:
         gb/AA: gb/15
         gb/X: gb/18
         TV-MA: gb/18
+        None: gb/Not Rated
+        Not Rated: gb/Not Rated
+        NR: gb/Not Rated
       mass_genre_update: tmdb
       # mass_poster_update: tmdb
       # mass_content_rating_update: reset
