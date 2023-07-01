@@ -312,7 +312,7 @@ libraries:
         use_airing: false
         use_canceled: false
         use_returning: false
-        font_color: '#E74C3C'
+        font_color: '#BDC3C7'
         font_size: 64
         text_ended: ●
         stroke_width: 6
