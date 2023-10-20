@@ -26,7 +26,7 @@ templates:
 collections:
   Popular:
     mdblist_list:
-      url: https://mdblist.com/lists/davo1624/top-watched-of-the-week-60-approval
+      url: https://mdblist.com/lists/yamtrakt/most-watched-of-the-week-filtered
     variables:
       key: popular
     template:

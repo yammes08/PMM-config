@@ -1,0 +1,28 @@
+external_templates:
+  pmm: templates
+  template_variables:
+    collection_section: "020"
+
+templates:
+  IMDb_top_100:
+    default:
+      summary_IMDb_top_100: IMDb's Top 100 movies.
+    summary: <<summary_<<key>>>>
+    url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/chart/IMDb%20Top%20250.jpg
+    radarr_add_missing: true
+    radarr_search: true
+    radarr_tag: pmm_imdb_100
+    item_radarr_tag: pmm_imdb_100
+
+collections:
+  IMDb Top 100:
+    mdblist_list:
+      url: https://mdblist.com/lists/yamtrakt/imdb-top-100
+      sort_by: imdbrating.desc
+    variables:
+      key: IMDb_top_100
+    template:
+      - name: IMDb_top_100
+      - name: shared
+    sync_mode: sync
+    collection_order: custom

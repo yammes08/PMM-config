@@ -20,6 +20,7 @@ templates:
       - poster
       - sort_title
       - radarr_quality
+      - radarr_upgrade_existing
     tmdb_collection_details: <<collection>>
     tmdb_movie: <<movie>>
     tmdb_summary: <<tmdb_summary>>
@@ -54,14 +55,14 @@ collections:
 
 #Harry Potter
   "Harry Potter Collection":
-    template: {name: Collections, radarr: true, tag: pmm_potter, collection: 1241, tmdb_summary: 1241, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/545}
+    template: {name: Collections, radarr: true, tag: pmm_potter, radarr_quality: SQP-3, radarr_upgrade_existing: true, collection: 1241, tmdb_summary: 1241, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/545}
 
 #DC
   "Batman Collection":
     template: {name: Collections, radarr: true, tag: pmm_batman, collection: "263, 948485, 120794", order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/6084}
 
-  "Superman Colection":
-    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, movie: 624479,tmdb_summary: 8537, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/72726}
+  "Superman Collection":
+    template: {name: Collections, radarr: true, tag: pmm_superman, collection: 8537, movie: 624479, tmdb_summary: 8537, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/72726}
 
 #James Bond
   "James Bond Collection":
@@ -75,22 +76,30 @@ collections:
   "Marvel Cinematic Universe":
     template: {name: Collections, radarr: true, tag: pmm_marvel, imdb: https://www.imdb.com/list/ls031310794/, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/879}
     filters:
-      title.not:
+      tmdb_title.not:
         - "Inhumans"
         - "Inhumans: The First Chapter"
         - "Marvel: 75 Years, From Pulp to Pop!"
-        - "Marvel 75 Years: From Pulp to Pop!"
         - "Marvel Studios: Assembling a Universe"
         - "Marvel Studios: Expanding the Universe"
         - "Helstrom"
+        - "Reaction Time"
+        - "Marvel One-Shot: Agent Carter"
+        - "Marvel One-Shot: All Hail the King"
+        - "Marvel One-Shot: The Consultant"
+        - "Marvel One-Shot: A Funny Thing Happened on the Way to Thor's Hammer"
+        - "Marvel One-Shot: Item 47"
+        - "Team Darryl"
+        - "Team Thor"
+        - "Team Thor: Part 2"
 
 #Star Wars
   "Star Wars Collection":
-    template: {name: Collections, radarr: true, tag: pmm_starwars, collection: 10, movie: "330459, 348350", tmdb_summary: 10, order: release, sort_title: "!998_<<collection_name>>",poster: https://theposterdb.com/api/assets/39137}
+    template: {name: Collections, radarr: true, tag: pmm_starwars, collection: 10, movie: "330459, 348350", tmdb_summary: 10, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/39137}
 
 #Studio Ghibli
   "Studio Ghibli Collection":
-    template: {name: Collections, radarr: true, tag: pmm_ghibli, tmdb: 4309, order: alpha, poster: https://theposterdb.com/api/assets/24655}
+    template: {name: Collections, radarr: true, tag: pmm_ghibli, tmdb: 4309, order: alpha, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/24655}
 
 #Blade Runner Collection
   "Blade Runner Collection":
@@ -102,15 +111,15 @@ collections:
 
 #Indiana Jones
   "Indiana Jones Collection":
-    template: {name: Collections, radarr: true, tag: pmm_indiana, collection: 84, tmdb_summary: 84, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/21883}
+    template: {name: Collections, radarr: true, tag: pmm_indiana, collection: 84, tmdb_summary: 84, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/10361}
 
 #Zombies
   "Zombie Collection":
     template: {name: Collections, radarr: true, tag: pmm_zombies, imdb: https://www.imdb.com/list/ls064286046, movie: 338967, order: alpha, sort_title: "!998_<<collection_name>>", poster: https://i.imgur.com/Qy1ckyd.jpeg"}
 
-#Bourne Collection
-  "Bourne Collection":
-    template: {name: Collections, radarr: true, tag: pmm_bourne, collection: 31562, tmdb_summary: 31562, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/5420}
+#The Bourne Collection
+  "The Bourne Collection":
+    template: {name: Collections, radarr: true, tag: pmm_bourne, collection: 31562, tmdb_summary: 31562, order: release, sort_title: "!998_Bourne Collection", poster: https://theposterdb.com/api/assets/19519}
 
 #Jurassic Park
   "Jurassic Park Collection":
@@ -118,7 +127,7 @@ collections:
 
 #Action Collection
   "Essential Action Movies":
-    template: {name: Collections, radarr: true, tag: pmm_action, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 140 Essential Sci-Fi Movies..", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69196}
+    template: {name: Collections, radarr: true, tag: pmm_action, radarr_quality: SQP-3, radarr_upgrade_existing: true, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 140 Essential Sci-Fi Movies..", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69196}
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
@@ -130,11 +139,11 @@ collections:
 
 #Terminator Collection
   "Terminator Collection":
-    template: {name: Collections, radarr: true, tag: pmm_terminator, collection: 528, tmdb_summary: 528, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/24273}
+    template: {name: Collections, radarr: true, tag: pmm_terminator, collection: 528, tmdb_summary: 528, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/100930}
 
 #Star Trek Collection
   "Star Trek Collection":
-    template: {name: Collections, radarr: true, tag: pmm_startrek, collection: "151, 115570, 115575", order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/146184}
+    template: {name: Collections, radarr: true, tag: pmm_startrek, collection: "151, 115570, 115575", order: release, summary: "Star Trek is an American media franchise based on the science fiction television series created by Gene Roddenberry. Paramount Pictures has produced thirteen Star Trek feature films. The first six films continue the adventures of the cast of the original series; the seventh film, Generations was designed as a transition from that cast to the cast of the Next Generation series; the next three films, 8 to 10, focused completely on the cast of the Next Generation series. The eleventh and subsequent films take place in an alternate timeline, officially known as the Kelvin timeline, with a new cast playing younger versions of the original series characters.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/21270}
 
 #Alien Franchise
   "Alien Collection":
@@ -162,7 +171,7 @@ collections:
 
 #Film School Rejects Horror
   "Film School Rejects: Best Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_fsr_horror, mdb: https://mdblist.com/lists/yamtrakt/film-school-rejects-the-50-best-horror-movies-ever, order: alpha, summary: "Film School Rejects - The 50 Best Horror Movies Ever.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/321744}
+    template: {name: Collections, radarr: true, tag: pmm_fsr_horror, mdb: {url: https://mdblist.com/lists/yamtrakt/film-school-rejects-the-50-best-horror-movies-ever?s_traktid=&s_action=&sort=usort&sortorder=desc, sort_by: score.desc}, order: alpha, summary: "Film School Rejects - The 50 Best Horror Movies Ever.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/321744}
 
 #X-Men Collection
   "X-Men Collection":
@@ -182,12 +191,28 @@ collections:
 
 #Shrek
   "Shrek Collection":
-    template: {name: Collections, radarr: true, tag: pmm_shrek, collection: 2150, order: release, tmdb_summary: 2150, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/53685}
+    template: {name: Collections, radarr: true, tag: pmm_shrek, collection: 2150, tmdb_summary: 2150, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/53685}
 
-#Audio Showcase
-  "Audio Showcase":
-    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: HQ Movies (SQP-3), trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Delve into a curated selection of films that feature exceptional sound design and sonic detail.", sort_title: "!998_<<collection_name>>"}
+#Reference Audio
+  "Reference Audio Collection":
+    template: {name: Collections, radarr: true, tag: pmm_audio, radarr_quality: SQP-3, radarr_upgrade_existing: true, trakt: https://trakt.tv/users/stupifier/lists/reference-audio, order: custom, summary: "Delve into a curated selection of films that feature exceptional sound design and sonic detail, as recommended by the Shane Lee YouTube channel.", sort_title: "!998_<<collection_name>>"}
 
 #Transformers
   "Transformers Collection":
     template: {name: Collections, radarr: true, tag: pmm_tf, collection: "8650, 939352", movie: 424783, order: release, tmdb_summary: 8650, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/13251}
+
+#The Matrix
+  "The Matrix Collection":
+    template: {name: Collections, radarr: true, tag: pmm_matrix, collection: 2344, tmdb_summary: 2344, order: release, sort_title: "!998_Matrix Collection", poster: https://theposterdb.com/api/assets/12041/}
+
+#The Conjuring Universe
+  "The Conjuring Universe":
+    template: {name: Collections, radarr: true, tag: pmm_conjuring, collection: "313086, 402074", movie: 480414, summary: "A supernatural horror film series following paranormal investigators Ed and Lorraine Warren, the malevolent doll Annabelle, and the evil nun Valak.", order: release, sort_title: "!998_Conjuring Universe", poster: https://theposterdb.com/api/assets/248035}
+
+#Insidious
+  "Insidious Collection":
+    template: {name: Collections, radarr: true, tag: pmm_insidious, collection: 228446, tmdb_summary: 228446, order: release, sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/44808/}
+
+#Planet of the Apes (Reboot)
+  "Planet of the Apes (Reboot) Collection":
+    template: {name: Collections, radarr: true, tag: pmm_apes, collection: 173710, tmdb_summary: 173710, order: release, sort_title: "!998_<<collection_name>>", poster: https://image.tmdb.org/t/p/original/afGkMC4HF0YtXYNkyfCgTDLFe6m.jpg}

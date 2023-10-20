@@ -1,16 +1,6 @@
 settings:
   cache: true
   cache_expiration: 30
-  # asset_directory: /config/assets  # Now defined per-library
-  asset_folders: true
-  asset_depth: 1
-  create_asset_folders: true
-  prioritize_assets: true
-  dimensional_asset_rename: true
-  download_url_assets: true
-  show_missing_season_assets: false
-  show_missing_episode_assets: false
-  show_asset_not_needed: true
   sync_mode: append
   default_collection_order:
   minimum_items: 2
@@ -37,6 +27,15 @@ settings:
   custom_repo:
   playlist_exclude_users:
   asset_directory:
+  asset_folders: true
+  asset_depth: 0
+  create_asset_folders: false
+  prioritize_assets: false
+  dimensional_asset_rename: false
+  download_url_assets: false
+  show_missing_season_assets: false
+  show_missing_episode_assets: false
+  show_asset_not_needed: true
 webhooks:
   error: notifiarr
   version: notifiarr
@@ -53,6 +52,7 @@ plex:
   clean_bundles: true
   empty_trash: true
   optimize: false
+  db_cache:
 trakt:
   client_id: (redacted)
   client_secret: (redacted)
@@ -80,20 +80,29 @@ radarr:
   token: (redacted)
   add_missing: true
   add_existing: true
-  root_folder_path: /data/media/4k-movies
-  monitor: movie
+  root_folder_path: /data/media/movies-4k
+  monitor: true
+  radarr_monitor: movie
   availability: released
-  quality_profile: Movies (SQP-2)
+  quality_profile: SQP-2
   tag: pmm
   search: true
   radarr_path:
   plex_path:
   upgrade_existing: false
   ignore_cache: false
+
 libraries:
   Movies:
     settings:
       asset_directory: /config/assets/movies
+      asset_folders: true
+      asset_depth: 1
+      create_asset_folders: true
+      prioritize_assets: true
+      dimensional_asset_rename: true
+      download_url_assets: true
+      show_asset_not_needed: true
     report_path: /config/reports/movies.yml
     metadata_path:
     - folder: config/metadata/movies/
@@ -119,9 +128,11 @@ libraries:
         - 8091      # Alien Collection
         - 2980      # Ghostbusters
         - 751156    # Hocus Pocus
+        - 402074    # Annabelle
+        - 228446    # Insidious
         tmdb_movie_halloween:
         - 23437     # A Nightmare on Elm Street (2010)
-        imdb_list_halloween: anything
+        imdb_list_halloween: https://www.imdb.com/list/ls521299137/
         radarr_add_missing_halloween: true
         radarr_tag_halloween: pmm_halloween
         item_radarr_tag_halloween: pmm_halloween
@@ -139,65 +150,21 @@ libraries:
       template_variables:
         sort_by: title.asc
         radarr_tag: pmm_basic
-    - pmm: imdb
-      template_variables:
-        use_popular: false
-        use_lowest: false
-        radarr_tag: pmm_imdb_250
-        item_radarr_tag: pmm_imdb_250
     - pmm: decade
       template_variables:
         sort_by: critic_rating.desc
         radarr_tag: pmm_decade
         collection_section: 999
-    # - pmm: flixpatrol
-      # template_variables:
-        # location_netflix: united_kingdom
-        # location_disney: united_kingdom
-        # location_hbo: world
-        # location_hulu: world
-        # location_paramount: world
-        # location_prime: united_kingdom
-        # radarr_tag: pmm_flixpatrol
-        # item_radarr_tag: pmm_flixpatrol
-        # radarr_monitor: none
-        # radarr_search: false
-    overlay_path:
-    # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
-    - remove_overlays: false                     # Set to true if you want to remove overlays
-    - reapply_overlay: false                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
-    - pmm: mediastinger
-    - pmm: resolution
-      template_variables:
-        use_1080p: false
-        use_720p: false
-        use_576p: false
-        use_480p: false
-        use_extended: false
-        use_uncut: false
-        use_unrated: false
-        use_special: false
-        use_anniversary: false
-        use_collector: false
-        use_diamond: false
-        use_platinum: false
-        use_directors: false
-        use_final: false
-        use_international: false
-        use_theatrical: false
-        use_ultimate: false
-        use_alternate: false
-        use_coda: false
-        use_remastered: false
-        use_criterion: false
-        use_richarddonner: false
-        use_blackchrome: false
-        use_definitive: false
-        use_ulysses: false
-    - file: config/overlays/movies/content_rating.yml
+    # overlay_path:
+    # - reset_overlays: plex                          # if you want to reset the poster to default poster from Plex
+    # - remove_overlays: true                     # Set to true if you want to remove overlays
+    # - reapply_overlays: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
+    # - pmm: mediastinger
+    # - folder: config/overlays/movies
     operations:
       assets_for_all: true
       # mass_poster_update: tmdb
+      # mass_poster_reset: plex
       delete_collections:
         configured: false
         managed: false
@@ -235,30 +202,142 @@ libraries:
       split_duplicates: false
       metadata_backup:
         path: /config/backups/Movies/metadata.yml
+        sync_tags: false
+        add_blank_entries: true
+
+  Movies (Streaming):
+    settings:
+      asset_directory: /config/assets/movies
+      asset_folders: true
+      asset_depth: 1
+      create_asset_folders: true
+      prioritize_assets: true
+      dimensional_asset_rename: true
+      download_url_assets: true
+      show_asset_not_needed: true
+    report_path: /config/reports/movies-streaming.yml
+    metadata_path:
+    - folder: config/metadata/movies/
+    - pmm: seasonal
+      template_variables:
+        use_valentine: false
+        use_independence: false
+        use_thanksgiving: false
+        use_mother: false
+        use_memorial: false
+        use_father: false
+        use_labor: false
+        use_latinx: false
+        use_aapi: false
+        use_veteran: false
+        sort_by: title.asc
+        radarr_add_missing: false
+        radarr_tag: pmm_seasonal
+        item_radarr_tag: pmm_seasonal
+        tmdb_collection_halloween:
+        - 11716     # Addams Family
+        - 313086    # Conjuring
+        - 91361     # Halloween Collection
+        - 8581      # A Nightmare on Elm Street Collection
+        - 1733      # The Mummy Collection
+        - 8091      # Alien Collection
+        - 2980      # Ghostbusters
+        - 751156    # Hocus Pocus
+        - 402074    # Annabelle
+        - 228446    # Insidious
+        tmdb_movie_halloween:
+        - 23437     # A Nightmare on Elm Street (2010)
+        imdb_list_halloween: https://www.imdb.com/list/ls521299137/
+        radarr_add_missing_halloween: true
+        radarr_tag_halloween: pmm_halloween
+        item_radarr_tag_halloween: pmm_halloween
+        schedule_mother: range(03/17-03/22)
+    - pmm: separator_award
+    - pmm: oscars
+      template_variables:
+        use_best_director: false
+        use_year_collections: false
+        collection_order: release
+        radarr_tag: pmm_oscars
+        item_radarr_tag: pmm_oscars
+    # - pmm: separator_chart
+    - pmm: basic
+      template_variables:
+        sort_by: title.asc
+        radarr_tag: pmm_basic
+    - pmm: decade
+      template_variables:
+        sort_by: critic_rating.desc
+        radarr_tag: pmm_decade
+        collection_section: 999
+    # overlay_path:
+    # - reset_overlays: plex                          # if you want to reset the poster to default poster from Plex
+    # - remove_overlays: true                     # Set to true if you want to remove overlays
+    # - reapply_overlays: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
+    # - pmm: mediastinger
+    # - folder: config/overlays/movies
+    operations:
+      assets_for_all: true
+      # mass_poster_update: tmdb
+      # mass_poster_reset: plex
+      delete_collections:
+        configured: false
+        managed: false
+      content_rating_mapper:
+        G: gb/U
+        TV-Y7: gb/U
+        TV-G: gb/U
+        PG: gb/PG
+        gb/A: gb/PG
+        gb/9+: gb/PG
+        TV-PG: gb/PG
+        gb/12A: gb/12
+        PG-13: gb/12
+        R: gb/15
+        TV-14: gb/15
+        gb/16: gb/15
+        gb/AA: gb/15
+        gb/X: gb/18
+        TV-MA: gb/18
+        None: gb/Not Rated
+        Not Rated: gb/Not Rated
+        NR: gb/Not Rated
+
+  Movies (Streaming) for operations:
+    library_name: Movies (Streaming)
+    schedule: Weekly(monday)
+    operations:
+      mass_genre_update: tmdb
+      # mass_poster_update: tmdb
+      # mass_content_rating_update: reset
+      mass_originally_available_update: tmdb
+      mass_audience_rating_update: mdb_tomatoesaudience
+      mass_critic_rating_update: mdb_tomatoes
+      mass_user_rating_update: imdb
+      split_duplicates: false
+      metadata_backup:
+        path: /config/backups/Movies_Streaming/metadata.yml
+        sync_tags: false
+        add_blank_entries: true
 
   TV Shows:
     settings:
       asset_directory: /config/assets/tv_shows
+      asset_folders: true
+      asset_depth: 1
+      create_asset_folders: true
+      prioritize_assets: true
+      dimensional_asset_rename: true
+      download_url_assets: true
+      show_missing_season_assets: false
+      show_missing_episode_assets: false
+      show_asset_not_needed: true
     report_path: /config/reports/TV_Shows.yml
     overlay_path:
-    # - reset_overlays: tmdb                          # if you want to reset the poster to default poster from tmdb
-    - remove_overlays: false                        # Set to true if you want to remove overlays
-    - reapply_overlay: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
-    - pmm: resolution
-      template_variables:
-        use_1080p: false
-        use_720p: false
-        use_576p: false
-        use_480p: false
-        use_edition: false
-    - pmm: resolution
-      template_variables:
-        overlay_level: season
-        use_1080p: false
-        use_720p: false
-        use_576p: false
-        use_480p: false
-        use_edition: false
+    # - reset_overlays: plex                          # if you want to reset the poster to default poster from Plex
+    # - remove_overlays: true                        # Set to true if you want to remove overlays
+    # - reapply_overlays: true                        # If you are doing a lot of testing and changes like me, keep this to true to always reapply overlays
+    # - folder: config/overlays/tv_shows
     - pmm: status         # AIRING
       template_variables:
         use_returning: false
@@ -325,6 +404,11 @@ libraries:
         back_height: 0
     operations:
       assets_for_all: true
+      # mass_poster_update: tmdb
+      # mass_poster_reset: plex
+      delete_collections:
+        configured: false
+        managed: false
       content_rating_mapper:
         G: gb/U
         TV-Y7: gb/U
@@ -344,16 +428,23 @@ libraries:
         None: gb/Not Rated
         Not Rated: gb/Not Rated
         NR: gb/Not Rated
+
+  TV Shows for operations:
+    library_name: TV Shows
+    schedule: Weekly(monday)
+    operations:
       mass_genre_update: tmdb
       # mass_poster_update: tmdb
       # mass_content_rating_update: reset
       mass_originally_available_update: tmdb
       mass_audience_rating_update: mdb_tomatoesaudience
       mass_critic_rating_update: mdb_tomatoes
-      mass_user_rating_update: tmdb
+      mass_user_rating_update: imdb
       split_duplicates: false
       metadata_backup:
         path: /config/backups/TV/metadata.yml
+        sync_tags: false
+        add_blank_entries: true
 
 playlist_files:
 - pmm: playlist
