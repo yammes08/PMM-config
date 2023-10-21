@@ -171,7 +171,7 @@ collections:
 
 #Film School Rejects Horror
   "Film School Rejects: Best Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_fsr_horror, mdb: {url: https://mdblist.com/lists/yamtrakt/film-school-rejects-the-50-best-horror-movies-ever?s_traktid=&s_action=&sort=usort&sortorder=desc, sort_by: score.desc}, order: alpha, summary: "Film School Rejects - The 50 Best Horror Movies Ever.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/321744}
+    template: {name: Collections, radarr: true, tag: pmm_fsr_horror, trakt: https://trakt.tv/users/yamtrakt/lists/film-school-rejects-the-50-best-horror-movies-ever, order: custom, summary: "Film School Rejects - The 50 Best Horror Movies Ever.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/321744}
 
 #X-Men Collection
   "X-Men Collection":
