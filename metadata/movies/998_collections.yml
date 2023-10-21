@@ -135,7 +135,7 @@ collections:
 
 #Horror Collection
   "Essential Horror Movies":
-    template: {name: Collections, radarr: true, tag: pmm_horror, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-the-200-best-horror-movies-of-all-time, order: alpha, summary: "Rotten Tomatoes - 200 Essential Horror Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69213}
+    template: {name: Collections, radarr: true, tag: pmm_horror, trakt: https://trakt.tv/users/yamtrakt/lists/rotten-tomatoes-the-200-best-horror-movies-of-all-time, order: custom, summary: "Rotten Tomatoes - 200 Essential Horror Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69213}
 
 #Terminator Collection
   "Terminator Collection":
