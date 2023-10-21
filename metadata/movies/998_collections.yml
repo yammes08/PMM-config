@@ -131,7 +131,7 @@ collections:
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
-    template: {name: Collections, radarr: true, tag: pmm_sci-fi, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-150-essential-sci-fi-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 150 Essential Sci-Fi Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69223}
+    template: {name: Collections, radarr: true, tag: pmm_sci-fi, trakt: https://trakt.tv/users/yamtrakt/lists/rotten-tomatoes-150-essential-sci-fi-movies-to-watch-now, order: custom, summary: "Rotten Tomatoes - 150 Essential Sci-Fi Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69223}
 
 #Horror Collection
   "Essential Horror Movies":
