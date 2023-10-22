@@ -127,7 +127,7 @@ collections:
 
 #Action Collection
   "Essential Action Movies":
-    template: {name: Collections, radarr: true, tag: pmm_action, radarr_quality: SQP-3, radarr_upgrade_existing: true, mdb: https://mdblist.com/lists/yamtrakt/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: alpha, summary: "Rotten Tomatoes - 140 Essential Sci-Fi Movies..", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69196}
+    template: {name: Collections, radarr: true, tag: pmm_action, radarr_quality: SQP-3, radarr_upgrade_existing: true, trakt: https://trakt.tv/users/yamtrakt/lists/rotten-tomatoes-140-essential-action-movies-to-watch-now, order: custom, summary: "Rotten Tomatoes - 140 Essential Action Movies.", sort_title: "!998_<<collection_name>>", poster: https://theposterdb.com/api/assets/69196}
 
 #Sci-Fi Collection
   "Essential Sci-Fi Movies":
