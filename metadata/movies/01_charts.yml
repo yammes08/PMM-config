@@ -4,43 +4,63 @@ external_templates:
     collection_section: "01"
 
 templates:
-  popular:
-    default:
-      summary_popular: Trakt most watched <<library_type>>s of the week
-    summary: <<summary_<<key>>>>
+  custom_chart:
     file_poster: config/assets/movies/<<collection_name>>/poster.jpg
     radarr_add_missing: true
     radarr_search: true
-    radarr_tag: pmm_popular
-    item_radarr_tag: pmm_popular
-  top_new_horror:
-    default:
-      summary_top_new_horror: Top new horror <<library_type>>s
-    summary: <<summary_<<key>>>>
-    file_poster: config/assets/movies/<<collection_name>>/poster.jpg
-    radarr_add_missing: true
-    radarr_search: true
-    radarr_tag: pmm_top_new_horror
-    item_radarr_tag: pmm_top_new_horror
+    minimum_items: 1
+    sync_mode: sync
+    collection_order: alpha
+    radarr_tag: pmm_<<key>>
+    item_radarr_tag: pmm_<<key>>
 
 collections:
   Popular:
     mdblist_list:
       url: https://mdblist.com/lists/yamtrakt/most-watched-of-the-week-filtered
+    summary: Trakt most watched movies of the week.
     variables:
       key: popular
     template:
-      - name: popular
+      - name: custom_chart
       - name: shared
-    sync_mode: sync
-    collection_order: alpha
+
   Top New Horror:
     mdblist_list:
       url: https://mdblist.com/lists/yamtrakt/top-new-horror
+    summary: Top new horror movies.
     variables:
       key: top_new_horror
     template:
-      - name: top_new_horror
+      - name: custom_chart
       - name: shared
-    sync_mode: sync
-    collection_order: alpha
+
+  Top New Action:
+    mdblist_list:
+      url: https://mdblist.com/lists/yamtrakt/top-new-action
+    summary: Top new action movies.
+    variables:
+      key: top_new_action
+    template:
+      - name: custom_chart
+      - name: shared
+
+  Top New Science Fiction:
+    mdblist_list:
+      url: https://mdblist.com/lists/yamtrakt/top-new-science-fiction
+    summary: Top new science fiction movies.
+    variables:
+      key: top_new_science_fiction
+    template:
+      - name: custom_chart
+      - name: shared
+
+  Top New Family:
+    mdblist_list:
+      url: https://mdblist.com/lists/yamtrakt/top-new-family
+    summary: Top new family movies.
+    variables:
+      key: top_new_family
+    template:
+      - name: custom_chart
+      - name: shared
