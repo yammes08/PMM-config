@@ -1,2 +1,2 @@
 # PMM-Config
-Plex Meta Manager configuration.
+Plex Meta Manager configuration
